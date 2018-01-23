@@ -247,7 +247,15 @@ function receivedMessage(event) {
 
     //sendTextMessage(senderID, "Quick reply tapped");
     
-    if (quickReplyPayload === "FAQ_NUS_ADMISSION") {
+    if (quickReplyPayload === "QR_FAQ") {
+      FAQMenu(senderID);
+    } else if (quickReplyPayload === "QR_PINUS") {
+      PINUSMenu(senderID);
+    } else if (quickReplyPayload === "QR_CAREER") {
+      sendTextMessage(senderID, "Here is a list of available jobs: >>> link to gsheet career. All the best for your journey!!\n\nIf you have any queries, please contact us at careers@pinusonline.com");
+    } else if (quickReplyPayload === "QR_PRIVACY_POLICY") {
+      sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
+    } else if (quickReplyPayload === "FAQ_NUS_ADMISSION") {
       sendTextMessage(senderID, "It is not that complicated to apply to NUS! Here are some brief steps to follow:\n1.Apply Online\n2.Submit Documents Online\n3.University Entrance Examination\n\nMore info can be found on (in Indonesian): http://bit.ly/2FGOzr2");
     } else if (quickReplyPayload === "FAQ_FINANCIAL_MATTERS") {
       FinancialMattersMenu(senderID);
@@ -255,6 +263,10 @@ function receivedMessage(event) {
       LifeInNUSMenu(senderID);
     } else if (quickReplyPayload === "FAQ_WHAT_TO_BRING_TO_SG") {
       sendTextMessage(senderID, "Here is a list of things that we suggest you to bring to SG:\n-Administrative documents\n-Cash\n-Clothes\n-Personal medication\n-Laptop\n-Calculator\n-Adaptor\n\nHere is a list of things that you are advised against bringing to SG:\n-Cutleries and cooking utensils\n-Brooms and mops\n-Cupboards, shelves, and containers\n-Pillows and bolsters\n-Toiletries\n-Excessive amount of food\n\nMore explanation can be found here (in Indonesian): http://bit.ly/2FJ8Ufl");
+    } else if (quickReplyPayload === "PINUS_PINUS_EXCO") {
+      sendTextMessage(senderID, "Thank you for your interest in our Executive Committee. To know more on what we have been doing, please take a look at this link: >>> Link to gdocs PINUS EXCO");
+    } else if (quickReplyPayload === "PINUS_EVENTS") {
+      sendTextMessage(senderID, "Thank you for your interest in our Events. To know more on what we have been doing, please take a look at this link: >>> Link to gdocs PINUS EXCO");
     } else if (quickReplyPayload === "FM_FINANCIAL_ASSISTANCE") {
       sendTextMessage(senderID, "Here is a list of financial aids that NUS offers:\n-Scholarship\n-Tuition Grant Online\n-Loans and Bursaries\n\nMore info can be found on (in Indonesian): http://bit.ly/2EMLyUH");
     } else if (quickReplyPayload === "FM_LIVING_COST") {
@@ -265,10 +277,9 @@ function receivedMessage(event) {
       sendTextMessage(senderID, "In general, CCAs in NUS are divided into 2 main categories:\n-External Organisation\n-NUS Affiliated Organisation\n\nMore info on each category can be found on (in Indonesian): http://bit.ly/2EJ7m3y");
     } else if (quickReplyPayload === "LIN_FACILITIES") {
       sendTextMessage(senderID, "Under Construction");
-    } else if (quickReplyPayload === "PINUS_PINUS_EXCO") {
-      sendTextMessage(senderID, "Thank you for your interest in our Executive Committee. To know more on what we have been doing, please take a look at this link: >>> Link to gdocs PINUS EXCO");
-    } else if (quickReplyPayload === "PINUS_EVENTS") {
-      sendTextMessage(senderID, "Thank you for your interest in our Events. To know more on what we have been doing, please take a look at this link: >>> Link to gdocs PINUS EXCO");
+    } else if (quickReplyPayload === "CANCEL") {
+      sendTextMessage(senderID, "No problem!");
+      templateMainMenu(senderID);
     }
     
     return;
@@ -388,8 +399,11 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  if (payload === "UNDER_CONSTRUCTION") {
-    sendTextMessage(senderID, "Under Construction");
+  if (payload === "GET_STARTED") {
+    sendTextMessage(senderID, "Hi there!");
+    templateMainMenu(senderID);
+  } else if (payload === "QR_MAIN_MENU") {
+    QRMainMenu(senderID);
   } else if (payload === "PM_FAQ") {
     FAQMenu(senderID);
   } else if (payload === "PM_PINUS") {
@@ -398,6 +412,8 @@ function receivedPostback(event) {
     sendTextMessage(senderID, "Here is a list of available jobs: >>> link to gsheet career. All the best for your journey!!\n\nIf you have any queries, please contact us at careers@pinusonline.com");
   } else if (payload === "PM_PRIVACY_POLICY") {
     sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
+  } else {
+    sendTextMessage(senderID, "Under Construction");
   }
 }
 
@@ -655,6 +671,45 @@ function sendGenericMessage(recipientId) {
 }
 
 /*
+ * Template Main Menu
+ *
+ */
+function templateMainMenu(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [
+            {
+              title: "PINUS Chatbot",
+              subtitle: "m.me/PerhimpunanIndonesiaNUS",
+              image_url: "http://pinusonline.com/asset/Pinus_logo_png.png",              
+              buttons: [
+                {
+                  type: "postback",
+                  title: "Tap here!",
+                  payload: "QR_MAIN_MENU"
+                },
+                {
+                  type:"element_share"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+/*
  * Send a receipt message using the Send API.
  *
  */
@@ -755,6 +810,50 @@ function sendQuickReply(recipientId) {
 }
 
 /*
+ * Quick Reply Main Menu
+ *
+ */
+function QRMainMenu(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "How can we help you?",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"FAQ",
+          "payload":"QR_FAQ"
+        },
+        {
+          "content_type":"text",
+          "title":"PINUS",
+          "payload":"QR_PINUS"
+        },
+        {
+          "content_type":"text",
+          "title":"Career",
+          "payload":"QR_CAREER"
+        },
+        {
+          "content_type":"text",
+          "title":"Privacy Policy",
+          "payload":"QR_PRIVACY_POLICY"
+        },
+        {
+          "content_type":"text",
+          "title":"Cancel",
+          "payload":"CANCEL"
+        }
+      ]
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+/*
  * FAQ Quick Reply Menu
  *
  */
@@ -785,6 +884,45 @@ function FAQMenu(recipientId) {
           "content_type":"text",
           "title":"What to Bring to SG",
           "payload":"FAQ_WHAT_TO_BRING_TO_SG"
+        },
+        {
+          "content_type":"text",
+          "title":"Cancel",
+          "payload":"CANCEL"
+        }
+      ]
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+/*
+ * PINUS Quick Reply Menu
+ *
+ */
+function PINUSMenu(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "What would you like to know about PINUS?",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"PINUS EXCO",
+          "payload":"PINUS_PINUS_EXCO"
+        },
+        {
+          "content_type":"text",
+          "title":"Events",
+          "payload":"PINUS_EVENTS"
+        },
+        {
+          "content_type":"text",
+          "title":"Cancel",
+          "payload":"CANCEL"
         }
       ]
     }
@@ -814,6 +952,11 @@ function FinancialMattersMenu(recipientId) {
           "content_type":"text",
           "title":"Living Cost",
           "payload":"FM_LIVING_COST"
+        },
+        {
+          "content_type":"text",
+          "title":"Cancel",
+          "payload":"CANCEL"
         }
       ]
     }
@@ -848,35 +991,11 @@ function LifeInNUSMenu(recipientId) {
           "content_type":"text",
           "title":"Facilities",
           "payload":"LIN_FACILITIES"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-/*
- * PINUS Quick Reply Menu
- *
- */
-function PINUSMenu(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "What would you like to know about PINUS?",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"PINUS EXCO",
-          "payload":"PINUS_PINUS_EXCO"
         },
         {
           "content_type":"text",
-          "title":"Events",
-          "payload":"PINUS_EVENTS"
+          "title":"Cancel",
+          "payload":"CANCEL"
         }
       ]
     }
