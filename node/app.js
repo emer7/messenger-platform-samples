@@ -247,39 +247,75 @@ function receivedMessage(event) {
 
     //sendTextMessage(senderID, "Quick reply tapped");
     
-    if (quickReplyPayload === "QR_FAQ") {
-      FAQMenu(senderID);
-    } else if (quickReplyPayload === "QR_PINUS") {
-      PINUSMenu(senderID);
-    } else if (quickReplyPayload === "QR_CAREER") {
-      sendTextMessage(senderID, "Here is a list of available jobs: >>> link to gsheet career. All the best for your journey!!\n\nIf you have any queries, please contact us at careers@pinusonline.com");
-    } else if (quickReplyPayload === "QR_PRIVACY_POLICY") {
-      sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
-    } else if (quickReplyPayload === "FAQ_NUS_ADMISSION") {
-      sendTextMessage(senderID, "It is not that complicated to apply to NUS! Here are some brief steps to follow:\n1.Apply Online\n2.Submit Documents Online\n3.University Entrance Examination\n\nMore info can be found on (in Indonesian): http://bit.ly/2FGOzr2");
-    } else if (quickReplyPayload === "FAQ_FINANCIAL_MATTERS") {
-      FinancialMattersMenu(senderID);
-    } else if (quickReplyPayload === "FAQ_LIFE_IN_NUS") {
-      LifeInNUSMenu(senderID);
-    } else if (quickReplyPayload === "FAQ_WHAT_TO_BRING_TO_SG") {
-      sendTextMessage(senderID, "Here is a list of things that we suggest you to bring to SG:\n-Administrative documents\n-Cash\n-Clothes\n-Personal medication\n-Laptop\n-Calculator\n-Adaptor\n\nHere is a list of things that you are advised against bringing to SG:\n-Cutleries and cooking utensils\n-Brooms and mops\n-Cupboards, shelves, and containers\n-Pillows and bolsters\n-Toiletries\n-Excessive amount of food\n\nMore explanation can be found here (in Indonesian): http://bit.ly/2FJ8Ufl");
-    } else if (quickReplyPayload === "PINUS_PINUS_EXCO") {
-      sendTextMessage(senderID, "Thank you for your interest in our Executive Committee. To know more on what we have been doing, please take a look at this link: >>> Link to gdocs PINUS EXCO");
-    } else if (quickReplyPayload === "PINUS_EVENTS") {
-      sendTextMessage(senderID, "Thank you for your interest in our Events. To know more on what we have been doing, please take a look at this link: >>> Link to gdocs PINUS EXCO");
-    } else if (quickReplyPayload === "FM_FINANCIAL_ASSISTANCE") {
-      sendTextMessage(senderID, "Here is a list of financial aids that NUS offers:\n-Scholarship\n-Tuition Grant Online\n-Loans and Bursaries\n\nMore info can be found on (in Indonesian): http://bit.ly/2EMLyUH");
-    } else if (quickReplyPayload === "FM_LIVING_COST") {
-      sendTextMessage(senderID, "Living cost between students may differ, but usually a student will spend around (each month):\n-$200 - $400 on food\n-$500 - $1,000 for on campus accommodation\n\You will also need to pay your tuition fee which can be found on FINANCIAL ASSISTANCE section.\n\nMore info can be found on: http://www.nus.edu.sg/oam/financialaid/financial-tuition-fees.html");
-    } else if (quickReplyPayload === "LIN_HOSTEL") {
-      sendTextMessage(senderID, "In general, NUS Hostels are divided into 3 different categories:\n-Residential College\n-Hall\n-Residences\n\nMore info on each accommodation, its rates and how to apply can be found on (in Indonesian): http://bit.ly/2r8cYCF");
-    } else if (quickReplyPayload === "LIN_CCAS") {
-      sendTextMessage(senderID, "In general, CCAs in NUS are divided into 2 main categories:\n-External Organisation\n-NUS Affiliated Organisation\n\nMore info on each category can be found on (in Indonesian): http://bit.ly/2EJ7m3y");
-    } else if (quickReplyPayload === "LIN_FACILITIES") {
-      sendTextMessage(senderID, "Under Construction");
-    } else if (quickReplyPayload === "CANCEL") {
-      sendTextMessage(senderID, "No problem!");
-      templateMainMenu(senderID);
+    switch (quickReplyPayload) {
+      case 'QR_FAQ':
+        FaqMenu(senderID);
+        break;
+        
+      case "QR_PINUS_EXCO":
+        PinusExcoMenu(senderID);
+        break;
+        
+      case "QR_CAREER":
+        sendTextMessage(senderID, "Setiap harinya selalu ada tawaran magang/kerja untuk anak-anak PINUS. Maka dari itu, seksi karir ini dibuat untuk mengkonsolidasikan semua tawaran tersebut agar memudahkan anak-anak PINUS untuk mencari pekerjaan/magang yang cocok untuk mereka.\n\nUntuk kesempatan kerja yang tersedia, silahkan cek bot karir dengan reguler.\nUntuk pertanyaan/pemasaran kesempatan kerja, silahkan email careers@pinusonline.com\n\n*List of available career opportunity: http://bit.ly/2DILBoy*\n\n*Internship Guide*\n-Full time internship commences during summer break (May - August) or winter break (December - January).\n-Summer internship applications can start as early as in semester one for banks and other big firms. You need to check their website directly on the internship application period. As a guide, the internship application period normally closes at the end of October.\n-Part time internship application period is irregular. During term time, criteria by MOE is to work 16 hours/week.");
+        break;
+        
+      case "QR_PRIVACY_POLICY":
+        sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
+        break;
+        
+      case "FAQ_NUS_ADMISSION":
+        sendTextMessage(senderID, "It is not that complicated to apply to NUS! Here are some brief steps to follow:\n1.Apply Online\n2.Submit Documents Online\n3.University Entrance Examination\n\nMore info can be found on (in Indonesian): http://bit.ly/2FGOzr2");
+        break;
+        
+      case "FAQ_FINANCIAL_MATTERS":
+        FinancialMattersMenu(senderID);
+        break;
+        
+      case "FAQ_LIFE_IN_NUS":
+        LifeInNusMenu(senderID);
+        break;
+        
+      case "FAQ_WHAT_TO_BRING_TO_SG":
+        sendTextMessage(senderID, "Here is a list of things that we suggest you to bring to SG:\n-Administrative documents\n-Cash\n-Clothes\n-Personal medication\n-Laptop\n-Calculator\n-Adaptor\n\nHere is a list of things that you are advised against bringing to SG:\n-Cutleries and cooking utensils\n-Brooms and mops\n-Cupboards, shelves, and containers\n-Pillows and bolsters\n-Toiletries\n-Excessive amount of food\n\nMore explanation can be found here (in Indonesian): http://bit.ly/2FJ8Ufl");
+        break;
+        
+      case "PINUS_EXCO_SIAPAKAH_KITA":
+        siapakahKita(senderID);
+        break;
+        
+      case "PINUS_EXCO_EVENTS":
+        sendTextMessage(senderID, "a. Upcoming Events\n  1. Annual General Meeting 2018\n     Agenda: AGM 2018 + New President Election\n     Date: TBC\n     Location: TBC\n  2. Seniors Appreciation Nights 2018\n      Date: TBC\n      Location: TBC\n\nb. Current Events (Happening soon!)");
+        break;
+        
+      case "PINUS_EXCO_INITIATIVES":
+        sendTextMessage(senderID, "*a. PINUS Canvas* - if you have an idea that will benefit PINUS Community, feel free to drop president@pinusonline.com a message and we can help you kickstart your idea\n\n*b. MANUSIA* - a student run publication about Indonesia Community in NUS. For more info: https://manusiapinus.wordpress.com\n\n*c. PINUS Futures* - a year long mentoring project to build PINUS Website\n\n*d. PINUS Tabletalk* - starts a conversation and raises awareness on pertinent national issue in Indonesia such as Corruption and Religious Harmony.\n\n*e. NUANSA* - a student cultural production founded by PINUS-ians to promote Indonesian culture. More info: https://www.facebook.com/nuansa.culturalproductions/\n\n*f. Misi Kami Peduli (Mission: We Care)* - community engagement programme for Indonesians, from Indonesians, to Indonesians. More info: https://www.facebook.com/MisiKamiPeduli/");
+        break;
+        
+      case "FM_FINANCIAL_ASSISTANCE":
+        sendTextMessage(senderID, "Here is a list of financial aids that NUS offers:\n-Scholarship\n-Tuition Grant Online\n-Loans and Bursaries\n\nMore info can be found on (in Indonesian): http://bit.ly/2EMLyUH");
+        break;
+        
+      case "FM_LIVING_COST":
+        sendTextMessage(senderID, "Living cost between students may differ, but usually a student will spend around (each month):\n-$200 - $400 on food\n-$500 - $1,000 for on campus accommodation\n\You will also need to pay your tuition fee which can be found on FINANCIAL ASSISTANCE section.\n\nMore info can be found on: http://www.nus.edu.sg/oam/financialaid/financial-tuition-fees.html");
+        break;
+        
+      case "LIN_HOSTEL":
+        sendTextMessage(senderID, "In general, NUS Hostels are divided into 3 different categories:\n-Residential College\n-Hall\n-Residences\n\nMore info on each accommodation, its rates and how to apply can be found on (in Indonesian): http://bit.ly/2r8cYCF");
+        break;
+        
+      case "LIN_CCAS":
+        sendTextMessage(senderID, "In general, CCAs in NUS are divided into 2 main categories:\n-External Organisation\n-NUS Affiliated Organisation\n\nMore info on each category can be found on (in Indonesian): http://bit.ly/2EJ7m3y");
+        break;
+        
+      case "SIAPAKAH_KITA_VISI_&_MISI":
+        sendTextMessage(senderID, "*Visi:* Menjadi wadah yang menarik dan kondusif bagi mahasiswa Indonesia di NUS untuk mengembangkan talenta dan potensi mereka.\n\n*Misi:* Berkontribusi terhadap komunitas mahasiswa di NUS maupun komunitas masyarakat di Indonesia.");
+        break;
+        
+      case "CANCEL":
+        sendTextMessage(senderID, "No problem!");
+        templateMainMenu(senderID);
+        break;
     }
     
     return;
@@ -399,21 +435,34 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  if (payload === "GET_STARTED") {
-    sendTextMessage(senderID, "Hi there!");
-    templateMainMenu(senderID);
-  } else if (payload === "QR_MAIN_MENU") {
-    QRMainMenu(senderID);
-  } else if (payload === "PM_FAQ") {
-    FAQMenu(senderID);
-  } else if (payload === "PM_PINUS") {
-    PINUSMenu(senderID);
-  } else if (payload === "PM_CAREER") {
-    sendTextMessage(senderID, "Here is a list of available jobs: >>> link to gsheet career. All the best for your journey!!\n\nIf you have any queries, please contact us at careers@pinusonline.com");
-  } else if (payload === "PM_PRIVACY_POLICY") {
-    sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
-  } else {
-    sendTextMessage(senderID, "Under Construction");
+  switch (payload) {
+    case "GET_STARTED":
+      sendTextMessage(senderID, "Hi there!");
+      templateMainMenu(senderID);
+      break;
+      
+    case "GT_MAIN_MENU":
+      MainMenu(senderID);
+      break;
+      
+    case "PM_FAQ":
+      FaqMenu(senderID);
+      break;
+      
+    case "PM_PINUS_EXCO":
+      PinusExcoMenu(senderID);
+      break;
+      
+    case "PM_CAREER":
+      sendTextMessage(senderID, "Setiap harinya selalu ada tawaran magang/kerja untuk anak-anak PINUS. Maka dari itu, seksi karir ini dibuat untuk mengkonsolidasikan semua tawaran tersebut agar memudahkan anak-anak PINUS untuk mencari pekerjaan/magang yang cocok untuk mereka.\n\nUntuk kesempatan kerja yang tersedia, silahkan cek bot karir dengan reguler.\nUntuk pertanyaan/pemasaran kesempatan kerja, silahkan email careers@pinusonline.com\n\n*List of available career opportunity: http://bit.ly/2DILBoy*\n\n*Internship Guide*\n-Full time internship commences during summer break (May - August) or winter break (December - January).\n-Summer internship applications can start as early as in semester one for banks and other big firms. You need to check their website directly on the internship application period. As a guide, the internship application period normally closes at the end of October.\n-Part time internship application period is irregular. During term time, criteria by MOE is to work 16 hours/week.");
+      break;
+      
+    case "PM_PRIVACY_POLICY":
+      sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
+      break;
+      
+    default:
+      sendTextMessage(senderID, "Under Construction");
   }
 }
 
@@ -693,7 +742,7 @@ function templateMainMenu(recipientId) {
                 {
                   type: "postback",
                   title: "Tap here!",
-                  payload: "QR_MAIN_MENU"
+                  payload: "GT_MAIN_MENU"
                 },
                 {
                   type:"element_share"
@@ -813,7 +862,7 @@ function sendQuickReply(recipientId) {
  * Quick Reply Main Menu
  *
  */
-function QRMainMenu(recipientId) {
+function MainMenu(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -828,8 +877,8 @@ function QRMainMenu(recipientId) {
         },
         {
           "content_type":"text",
-          "title":"PINUS",
-          "payload":"QR_PINUS"
+          "title":"PINUS EXCO",
+          "payload":"QR_PINUS_EXCO"
         },
         {
           "content_type":"text",
@@ -857,13 +906,13 @@ function QRMainMenu(recipientId) {
  * FAQ Quick Reply Menu
  *
  */
-function FAQMenu(recipientId) {
+function FaqMenu(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "What would you want to know?",
+      text: "Frequently Asked Question",
       quick_replies: [
         {
           "content_type":"text",
@@ -898,26 +947,31 @@ function FAQMenu(recipientId) {
 }
 
 /*
- * PINUS Quick Reply Menu
+ * PINUS EXCO Quick Reply Menu
  *
  */
-function PINUSMenu(recipientId) {
+function PinusExcoMenu(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "What would you like to know about PINUS?",
+      text: "What would you like to know about PINUS EXCO?",
       quick_replies: [
         {
           "content_type":"text",
-          "title":"PINUS EXCO",
-          "payload":"PINUS_PINUS_EXCO"
+          "title":"Siapakah kita",
+          "payload":"PINUS_EXCO_SIAPAKAH_KITA"
         },
         {
           "content_type":"text",
           "title":"Events",
-          "payload":"PINUS_EVENTS"
+          "payload":"PINUS_EXCO_EVENTS"
+        },
+        {
+          "content_type":"text",
+          "title":"Initiatives",
+          "payload":"PINUS_EXCO_INITIATIVES"
         },
         {
           "content_type":"text",
@@ -969,7 +1023,7 @@ function FinancialMattersMenu(recipientId) {
  * FAQ > Life in NUS Quick Reply Menu
  *
  */
-function LifeInNUSMenu(recipientId) {
+function LifeInNusMenu(recipientId) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -989,13 +1043,32 @@ function LifeInNUSMenu(recipientId) {
         },
         {
           "content_type":"text",
-          "title":"Facilities",
-          "payload":"LIN_FACILITIES"
-        },
-        {
-          "content_type":"text",
           "title":"Cancel",
           "payload":"CANCEL"
+        }
+      ]
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+/*
+ * PINUS EXCO > Siapakah kita
+ *
+ */
+function siapakahKita(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "We empower and drive the Indonesian community in NUS to be an inclusive society and a support system for Indonesian students from NUS.",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"Visi & Misi",
+          "payload":"SIAPAKAH_KITA_VISI_&_MISI"
         }
       ]
     }
