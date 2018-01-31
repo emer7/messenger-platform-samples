@@ -258,14 +258,17 @@ function receivedMessage(event) {
         
       case "QR_CAREER":
         sendTextMessage(senderID, "Setiap harinya selalu ada tawaran magang/kerja untuk anak-anak PINUS. Maka dari itu, seksi karir ini dibuat untuk mengkonsolidasikan semua tawaran tersebut agar memudahkan anak-anak PINUS untuk mencari pekerjaan/magang yang cocok untuk mereka.\n\nUntuk kesempatan kerja yang tersedia, silahkan cek bot karir dengan reguler.\nUntuk pertanyaan/pemasaran kesempatan kerja, silahkan email careers@pinusonline.com\n\n*List of available career opportunity: http://bit.ly/2DILBoy*\n\n*Internship Guide*\n-Full time internship commences during summer break (May - August) or winter break (December - January).\n-Summer internship applications can start as early as in semester one for banks and other big firms. You need to check their website directly on the internship application period. As a guide, the internship application period normally closes at the end of October.\n-Part time internship application period is irregular. During term time, criteria by MOE is to work 16 hours/week.");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "QR_PRIVACY_POLICY":
         sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "FAQ_NUS_ADMISSION":
         sendTextMessage(senderID, "It is not that complicated to apply to NUS! Here are some brief steps to follow:\n1.Apply Online\n2.Submit Documents Online\n3.University Entrance Examination\n\nMore info can be found on (in Indonesian): http://bit.ly/2FGOzr2");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "FAQ_FINANCIAL_MATTERS":
@@ -278,6 +281,7 @@ function receivedMessage(event) {
         
       case "FAQ_WHAT_TO_BRING_TO_SG":
         sendTextMessage(senderID, "Here is a list of things that we suggest you to bring to SG:\n-Administrative documents\n-Cash\n-Clothes\n-Personal medication\n-Laptop\n-Calculator\n-Adaptor\n\nHere is a list of things that you are advised against bringing to SG:\n-Cutleries and cooking utensils\n-Brooms and mops\n-Cupboards, shelves, and containers\n-Pillows and bolsters\n-Toiletries\n-Excessive amount of food\n\nMore explanation can be found here (in Indonesian): http://bit.ly/2FJ8Ufl");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "PINUS_EXCO_SIAPAKAH_KITA":
@@ -286,35 +290,42 @@ function receivedMessage(event) {
         
       case "PINUS_EXCO_EVENTS":
         sendTextMessage(senderID, "a. Upcoming Events\n  1. Annual General Meeting 2018\n     Agenda: AGM 2018 + New President Election\n     Date: TBC\n     Location: TBC\n  2. Seniors Appreciation Nights 2018\n      Date: TBC\n      Location: TBC\n\nb. Current Events (Happening soon!)");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "PINUS_EXCO_INITIATIVES":
         sendTextMessage(senderID, "*a. PINUS Canvas* - if you have an idea that will benefit PINUS Community, feel free to drop president@pinusonline.com a message and we can help you kickstart your idea\n\n*b. MANUSIA* - a student run publication about Indonesia Community in NUS. For more info: https://manusiapinus.wordpress.com\n\n*c. PINUS Futures* - a year long mentoring project to build PINUS Website\n\n*d. PINUS Tabletalk* - starts a conversation and raises awareness on pertinent national issue in Indonesia such as Corruption and Religious Harmony.\n\n*e. NUANSA* - a student cultural production founded by PINUS-ians to promote Indonesian culture. More info: https://www.facebook.com/nuansa.culturalproductions/\n\n*f. Misi Kami Peduli (Mission: We Care)* - community engagement programme for Indonesians, from Indonesians, to Indonesians. More info: https://www.facebook.com/MisiKamiPeduli/");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "FM_FINANCIAL_ASSISTANCE":
         sendTextMessage(senderID, "Here is a list of financial aids that NUS offers:\n-Scholarship\n-Tuition Grant Online\n-Loans and Bursaries\n\nMore info can be found on (in Indonesian): http://bit.ly/2EMLyUH");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "FM_LIVING_COST":
         sendTextMessage(senderID, "Living cost between students may differ, but usually a student will spend around (each month):\n-$200 - $400 on food\n-$500 - $1,000 for on campus accommodation\n\You will also need to pay your tuition fee which can be found on FINANCIAL ASSISTANCE section.\n\nMore info can be found on: http://www.nus.edu.sg/oam/financialaid/financial-tuition-fees.html");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "LIN_HOSTEL":
         sendTextMessage(senderID, "In general, NUS Hostels are divided into 3 different categories:\n-Residential College\n-Hall\n-Residences\n\nMore info on each accommodation, its rates and how to apply can be found on (in Indonesian): http://bit.ly/2r8cYCF");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "LIN_CCAS":
         sendTextMessage(senderID, "In general, CCAs in NUS are divided into 2 main categories:\n-External Organisation\n-NUS Affiliated Organisation\n\nMore info on each category can be found on (in Indonesian): http://bit.ly/2EJ7m3y");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "SIAPAKAH_KITA_VISI_&_MISI":
         sendTextMessage(senderID, "*Visi:* Menjadi wadah yang menarik dan kondusif bagi mahasiswa Indonesia di NUS untuk mengembangkan talenta dan potensi mereka.\n\n*Misi:* Berkontribusi terhadap komunitas mahasiswa di NUS maupun komunitas masyarakat di Indonesia.");
+        setTimeout(MainMenu, 1500, senderID);
         break;
         
       case "CANCEL":
         sendTextMessage(senderID, "No problem!");
-        templateMainMenu(senderID);
+        setTimeout(templateMainMenu, 1500, senderID);
         break;
     }
     
@@ -438,7 +449,7 @@ function receivedPostback(event) {
   switch (payload) {
     case "GET_STARTED":
       sendTextMessage(senderID, "Hi there!");
-      templateMainMenu(senderID);
+      setTimeout(templateMainMenu, 1500, senderID);
       break;
       
     case "GT_MAIN_MENU":
@@ -455,14 +466,17 @@ function receivedPostback(event) {
       
     case "PM_CAREER":
       sendTextMessage(senderID, "Setiap harinya selalu ada tawaran magang/kerja untuk anak-anak PINUS. Maka dari itu, seksi karir ini dibuat untuk mengkonsolidasikan semua tawaran tersebut agar memudahkan anak-anak PINUS untuk mencari pekerjaan/magang yang cocok untuk mereka.\n\nUntuk kesempatan kerja yang tersedia, silahkan cek bot karir dengan reguler.\nUntuk pertanyaan/pemasaran kesempatan kerja, silahkan email careers@pinusonline.com\n\n*List of available career opportunity: http://bit.ly/2DILBoy*\n\n*Internship Guide*\n-Full time internship commences during summer break (May - August) or winter break (December - January).\n-Summer internship applications can start as early as in semester one for banks and other big firms. You need to check their website directly on the internship application period. As a guide, the internship application period normally closes at the end of October.\n-Part time internship application period is irregular. During term time, criteria by MOE is to work 16 hours/week.");
+        setTimeout(MainMenu, 1500, senderID);
       break;
       
     case "PM_PRIVACY_POLICY":
       sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
+        setTimeout(MainMenu, 1500, senderID);
       break;
       
     default:
       sendTextMessage(senderID, "Under Construction");
+        setTimeout(MainMenu, 1500, senderID);
   }
 }
 
