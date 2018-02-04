@@ -926,7 +926,7 @@ function FaqMenu(recipientId) {
       id: recipientId
     },
     message: {
-      text: "Frequently Asked Question",
+      text: "Frequently Asked Questions",
       quick_replies: [
         {
           "content_type":"text",
