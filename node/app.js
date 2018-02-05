@@ -289,7 +289,7 @@ function receivedMessage(event) {
         break;
         
       case "PINUS_EXCO_EVENTS":
-        sendTextMessage(senderID, "a. Upcoming Events\n  1. Annual General Meeting 2018\n     Agenda: AGM 2018 + New President Election\n     Date: TBC\n     Location: TBC\n  2. Seniors Appreciation Nights 2018\n      Date: TBC\n      Location: TBC\n\nb. Current Events (Happening soon!)");
+        sendTextMessage(senderID, "*a. Upcoming Events*\n  1. Annual General Meeting 2018\n     Agenda: AGM 2018 + New President Election\n     Date: TBC\n     Location: TBC\n  2. Seniors Appreciation Nights 2018\n      Date: TBC\n      Location: TBC\n\n*b. Current Events* (Happening soon!)");
         setTimeout(MainMenu, 1500, senderID);
         break;
         
