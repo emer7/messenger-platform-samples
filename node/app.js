@@ -267,8 +267,8 @@ function receivedMessage(event) {
         break;
         
       case "FAQ_NUS_ADMISSION":
-        sendTextMessage(senderID, "It is not that complicated to apply to NUS! Here are some brief steps to follow:\n1.Apply Online\n2.Submit Documents Online\n3.University Entrance Examination\n\nMore info can be found on (in Indonesian): http://bit.ly/2FGOzr2");
-        setTimeout(MainMenu, 1500, senderID);
+        sendTextMessage(senderID, "It is not that complicated to apply to NUS! Here are some brief steps to follow:\n1. Apply Online\n2. Submit Documents Online\n3. University Entrance Examination\n\nMore info can be found on (in Indonesian): http://bit.ly/2FGOzr2");
+        setTimeout(FaqMenu, 1500, senderID);
         break;
         
       case "FAQ_FINANCIAL_MATTERS":
@@ -280,8 +280,8 @@ function receivedMessage(event) {
         break;
         
       case "FAQ_WHAT_TO_BRING_TO_SG":
-        sendTextMessage(senderID, "Here is a list of things that we suggest you to bring to SG:\n-Administrative documents\n-Cash\n-Clothes\n-Personal medication\n-Laptop\n-Calculator\n-Adaptor\n\nHere is a list of things that you are advised against bringing to SG:\n-Cutleries and cooking utensils\n-Brooms and mops\n-Cupboards, shelves, and containers\n-Pillows and bolsters\n-Toiletries\n-Excessive amount of food\n\nMore explanation can be found here (in Indonesian): http://bit.ly/2FJ8Ufl");
-        setTimeout(MainMenu, 1500, senderID);
+        sendTextMessage(senderID, "Here is a list of things that we suggest you to bring to SG:\n- Administrative documents\n- Cash\n- Clothes\n- Personal medication\n- Laptop\n- Calculator\n- Adaptor\n\nHere is a list of things that you are advised against bringing to SG:\n- Cutleries and cooking utensils\n- Brooms and mops\n- Cupboards, shelves, and containers\n- Pillows and bolsters\n- Toiletries\n- Excessive amount of food\n\nMore explanation can be found here (in Indonesian): http://bit.ly/2FJ8Ufl");
+        setTimeout(FaqMenu, 1500, senderID);
         break;
         
       case "PINUS_EXCO_SIAPAKAH_KITA":
@@ -289,38 +289,38 @@ function receivedMessage(event) {
         break;
         
       case "PINUS_EXCO_EVENTS":
-        sendTextMessage(senderID, "*a. Upcoming Events*\n  1. Annual General Meeting 2018\n     Agenda: AGM 2018 + New President Election\n     Date: TBC\n     Location: TBC\n  2. Seniors Appreciation Nights 2018\n      Date: TBC\n      Location: TBC\n\n*b. Current Events* (Happening soon!)");
-        setTimeout(MainMenu, 1500, senderID);
+        sendTextMessage(senderID, "*a. Upcoming Events*\n  1. Annual General Meeting 2018\n     Agenda: AGM 2018 + New President Election\n     Date: TBC\n     Location: TBC\n  2. Seniors Appreciation Nights 2018\n      Date: 24th March 2018\n      Location: TBC\n\n*b. Current Events* (Happening soon!)\n  1. CNY Dinner\n     Date: 16th February 2018\n     Time: 6:30 PM\n     Location: UTown rooftop\n     Sign-up: http://bit.ly/PINUSCNYDinner");
+        setTimeout(PinusExcoMenu, 1500, senderID);
         break;
         
       case "PINUS_EXCO_INITIATIVES":
         sendTextMessage(senderID, "*a. PINUS Canvas* - if you have an idea that will benefit PINUS Community, feel free to drop president@pinusonline.com a message and we can help you kickstart your idea\n\n*b. MANUSIA* - a student run publication about Indonesia Community in NUS. For more info: https://manusiapinus.wordpress.com\n\n*c. PINUS Futures* - a year long mentoring project to build PINUS Website\n\n*d. PINUS Tabletalk* - starts a conversation and raises awareness on pertinent national issue in Indonesia such as Corruption and Religious Harmony.\n\n*e. NUANSA* - a student cultural production founded by PINUS-ians to promote Indonesian culture. More info: https://www.facebook.com/nuansa.culturalproductions/\n\n*f. Misi Kami Peduli (Mission: We Care)* - community engagement programme for Indonesians, from Indonesians, to Indonesians. More info: https://www.facebook.com/MisiKamiPeduli/");
-        setTimeout(MainMenu, 1500, senderID);
+        setTimeout(PinusExcoMenu, 1500, senderID);
         break;
         
       case "FM_FINANCIAL_ASSISTANCE":
-        sendTextMessage(senderID, "Here is a list of financial aids that NUS offers:\n-Scholarship\n-Tuition Grant Online\n-Loans and Bursaries\n\nMore info can be found on (in Indonesian): http://bit.ly/2EMLyUH");
-        setTimeout(MainMenu, 1500, senderID);
+        sendTextMessage(senderID, "Here is a list of financial aids that NUS offers:\n- Scholarship\n- Tuition Grant Online\n- Loans and Bursaries\n\nMore info can be found on (in Indonesian): http://bit.ly/2EMLyUH");
+        setTimeout(FaqMenu, 1500, senderID);
         break;
         
       case "FM_LIVING_COST":
-        sendTextMessage(senderID, "Living cost between students may differ, but usually a student will spend around (each month):\n-$200 - $400 on food\n-$500 - $1,000 for on campus accommodation\n\You will also need to pay your tuition fee which can be found on FINANCIAL ASSISTANCE section.\n\nMore info can be found on: http://www.nus.edu.sg/oam/financialaid/financial-tuition-fees.html");
-        setTimeout(MainMenu, 1500, senderID);
+        sendTextMessage(senderID, "Living cost between students may differ, but usually a student will spend around (each month):\n- $200 - $400 on food\n- $500 - $1,000 for on campus accommodation\n\You will also need to pay your tuition fee which can be found on FINANCIAL ASSISTANCE section.\n\nMore info can be found on: http://www.nus.edu.sg/oam/financialaid/financial-tuition-fees.html");
+        setTimeout(FaqMenu, 1500, senderID);
         break;
         
       case "LIN_HOSTEL":
-        sendTextMessage(senderID, "In general, NUS Hostels are divided into 3 different categories:\n-Residential College\n-Hall\n-Residences\n\nMore info on each accommodation, its rates and how to apply can be found on (in Indonesian): http://bit.ly/2r8cYCF");
-        setTimeout(MainMenu, 1500, senderID);
+        sendTextMessage(senderID, "In general, NUS Hostels are divided into 3 different categories:\n- Residential College\n- Hall\n- Residences\n\nMore info on each accommodation, its rates and how to apply can be found on (in Indonesian): http://bit.ly/2r8cYCF");
+        setTimeout(FaqMenu, 1500, senderID);
         break;
         
       case "LIN_CCAS":
-        sendTextMessage(senderID, "In general, CCAs in NUS are divided into 2 main categories:\n-External Organisation\n-NUS Affiliated Organisation\n\nMore info on each category can be found on (in Indonesian): http://bit.ly/2EJ7m3y");
-        setTimeout(MainMenu, 1500, senderID);
+        sendTextMessage(senderID, "In general, CCAs in NUS are divided into 2 main categories:\n- External Organisation\n- NUS Affiliated Organisation\n\nMore info on each category can be found on (in Indonesian): http://bit.ly/2EJ7m3y");
+        setTimeout(FaqMenu, 1500, senderID);
         break;
         
       case "SIAPAKAH_KITA_VISI_&_MISI":
         sendTextMessage(senderID, "*Visi:* Menjadi wadah yang menarik dan kondusif bagi mahasiswa Indonesia di NUS untuk mengembangkan talenta dan potensi mereka.\n\n*Misi:* Berkontribusi terhadap komunitas mahasiswa di NUS maupun komunitas masyarakat di Indonesia.");
-        setTimeout(MainMenu, 1500, senderID);
+        setTimeout(PinusExcoMenu, 1500, senderID);
         break;
         
       case "CANCEL":
