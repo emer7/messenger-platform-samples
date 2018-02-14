@@ -340,11 +340,29 @@ function receivedMessage(event) {
         sendTextMessage(senderID, "No problem!");
         setTimeout(templateMainMenu, 1500, senderID);
         break;
+        
+      default:
+        sendTextMessage(senderID, "We are working on it! We apologize for the inconvenience.");
+        setTimeout(MainMenu, 1500, senderID);
     }
     
     return;
   }
-
+  /*
+  if (messageText) {
+    if (entities.faq_id) {
+      var confidence = entities.faq_id[0].confidence;
+      var value = entities.faq_id[0].value;
+      console.log(confidence);
+      console.log(value);
+      if (value == "admisi" && confidence >= 0.8) {
+        sendTextMessage(senderID, "Silahkan cek FAQ > NUS Admissions kami");
+      } else if (value == "scholarship" && confidence >= 0.8) {
+        sendTextMessage(senderID, "Silahkan cek FAQ > Financial Matters > Financial Assitance kami.");
+      }
+    }
+  }
+  */
   /*if (messageText) {
 
     // If we receive a text message, check to see if it matches any special
@@ -469,6 +487,16 @@ function receivedPostback(event) {
       MainMenu(senderID);
       break;
       
+    case "GT_ADMISSION":
+      sendTextMessage(senderID, "It is not that complicated to apply to NUS! Here are some brief steps to follow:\n1. Apply Online\n2. Submit Documents Online\n3. University Entrance Examination\n\nMore info can be found on (in Indonesian): http://bit.ly/2FGOzr2");
+      setTimeout(FaqMenu, 1500, senderID);
+      break;
+     
+    case "GT_SCHOLARSHIP":
+      sendTextMessage(senderID, "Here is a list of financial aids that NUS offers:\n- Scholarship\n- Tuition Grant Online\n- Loans and Bursaries\n\nMore info can be found on (in Indonesian): http://bit.ly/2EMLyUH");
+      setTimeout(FaqMenu, 1500, senderID);
+      break;
+      
     case "PM_FAQ":
       FaqMenu(senderID);
       break;
@@ -479,17 +507,17 @@ function receivedPostback(event) {
       
     case "PM_CAREER":
       sendTextMessage(senderID, "Setiap harinya selalu ada tawaran magang/kerja untuk anak-anak PINUS. Maka dari itu, seksi karir ini dibuat untuk mengkonsolidasikan semua tawaran tersebut agar memudahkan anak-anak PINUS untuk mencari pekerjaan/magang yang cocok untuk mereka.\n\nUntuk kesempatan kerja yang tersedia, silahkan cek bot karir dengan reguler.\nUntuk pertanyaan/pemasaran kesempatan kerja, silahkan email careers@pinusonline.com\n\n*List of available career opportunity: http://bit.ly/2DILBoy*\n\n*Internship Guide*\n-Full time internship commences during summer break (May - August) or winter break (December - January).\n-Summer internship applications can start as early as in semester one for banks and other big firms. You need to check their website directly on the internship application period. As a guide, the internship application period normally closes at the end of October.\n-Part time internship application period is irregular. During term time, criteria by MOE is to work 16 hours/week.");
-        setTimeout(MainMenu, 1500, senderID);
+      setTimeout(MainMenu, 1500, senderID);
       break;
       
     case "PM_PRIVACY_POLICY":
       sendTextMessage(senderID, "As requested by Facebook Messenger, here is our privacy policy: pinusonline.com/PrivacyPolicy.html");
-        setTimeout(MainMenu, 1500, senderID);
+      setTimeout(MainMenu, 1500, senderID);
       break;
       
     default:
-      sendTextMessage(senderID, "Under Construction");
-        setTimeout(MainMenu, 1500, senderID);
+      sendTextMessage(senderID, "We are working on it! We apologize for the inconvenience.");
+      setTimeout(MainMenu, 1500, senderID);
   }
 }
 
@@ -768,11 +796,18 @@ function templateMainMenu(recipientId) {
               buttons: [
                 {
                   type: "postback",
-                  title: "Tap here!",
+                  title: "Main Menu",
                   payload: "GT_MAIN_MENU"
                 },
                 {
-                  type:"element_share"
+                  type: "postback",
+                  title: "How to enter NUS",
+                  payload: "GT_ADMISSION"
+                },
+                {
+                  type: "postback",
+                  title: "Scholarship",
+                  payload: "GT_SCHOLARSHIP"
                 }
               ]
             }
