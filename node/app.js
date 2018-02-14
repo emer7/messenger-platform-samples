@@ -256,6 +256,11 @@ function receivedMessage(event) {
         PinusExcoMenu(senderID);
         break;
         
+      case "QR_EVENTS":
+        sendTextMessage(senderID, "*a. Upcoming Events*\n  1. Annual General Meeting 2018\n     Agenda: AGM 2018 + New President Election\n     Date: TBC\n     Location: TBC\n  2. Seniors Appreciation Nights 2018\n      Date: 24th March 2018\n      Location: TBC\n\n*b. Current Events* (Happening soon!)\n  1. CNY Dinner\n     Date: 16th February 2018\n     Time: 6:30 PM\n     Location: UTown rooftop\n     Sign-up: http://bit.ly/PINUSCNYDinner");
+        setTimeout(MainMenu, 1500, senderID);
+        break;
+        
       case "QR_CAREER":
         sendTextMessage(senderID, "Setiap harinya selalu ada tawaran magang/kerja untuk anak-anak PINUS. Maka dari itu, seksi karir ini dibuat untuk mengkonsolidasikan semua tawaran tersebut agar memudahkan anak-anak PINUS untuk mencari pekerjaan/magang yang cocok untuk mereka.\n\nUntuk kesempatan kerja yang tersedia, silahkan cek bot karir dengan reguler.\nUntuk pertanyaan/pemasaran kesempatan kerja, silahkan email careers@pinusonline.com\n\n*List of available career opportunity: http://bit.ly/2DILBoy*\n\n*Internship Guide*\n-Full time internship commences during summer break (May - August) or winter break (December - January).\n-Summer internship applications can start as early as in semester one for banks and other big firms. You need to check their website directly on the internship application period. As a guide, the internship application period normally closes at the end of October.\n-Part time internship application period is irregular. During term time, criteria by MOE is to work 16 hours/week.");
         setTimeout(MainMenu, 1500, senderID);
@@ -321,6 +326,14 @@ function receivedMessage(event) {
       case "SIAPAKAH_KITA_VISI_&_MISI":
         sendTextMessage(senderID, "*Visi:* Menjadi wadah yang menarik dan kondusif bagi mahasiswa Indonesia di NUS untuk mengembangkan talenta dan potensi mereka.\n\n*Misi:* Berkontribusi terhadap komunitas mahasiswa di NUS maupun komunitas masyarakat di Indonesia.");
         setTimeout(PinusExcoMenu, 1500, senderID);
+        break;
+        
+      case "FAQ_BACK": case "PINUS_EXCO_BACK":
+        MainMenu(senderID);
+        break;
+        
+      case "FM_BACK": case "LIN_BACK":
+        FaqMenu(senderID);
         break;
         
       case "CANCEL":
@@ -896,6 +909,11 @@ function MainMenu(recipientId) {
         },
         {
           "content_type":"text",
+          "title":"Events",
+          "payload":"QR_EVENTS"
+        },
+        {
+          "content_type":"text",
           "title":"Career",
           "payload":"QR_CAREER"
         },
@@ -950,6 +968,11 @@ function FaqMenu(recipientId) {
         },
         {
           "content_type":"text",
+          "title":"Back",
+          "payload":"FAQ_BACK"
+        },
+        {
+          "content_type":"text",
           "title":"Cancel",
           "payload":"CANCEL"
         }
@@ -989,6 +1012,11 @@ function PinusExcoMenu(recipientId) {
         },
         {
           "content_type":"text",
+          "title":"Back",
+          "payload":"PINUS_EXCO_BACK"
+        },
+        {
+          "content_type":"text",
           "title":"Cancel",
           "payload":"CANCEL"
         }
@@ -1023,6 +1051,11 @@ function FinancialMattersMenu(recipientId) {
         },
         {
           "content_type":"text",
+          "title":"Back",
+          "payload":"FM_BACK"
+        },
+        {
+          "content_type":"text",
           "title":"Cancel",
           "payload":"CANCEL"
         }
@@ -1054,6 +1087,11 @@ function LifeInNusMenu(recipientId) {
           "content_type":"text",
           "title":"CCAs",
           "payload":"LIN_CCAS"
+        },
+        {
+          "content_type":"text",
+          "title":"Back",
+          "payload":"LIN_BACK"
         },
         {
           "content_type":"text",
